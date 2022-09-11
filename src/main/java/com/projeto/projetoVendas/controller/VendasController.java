@@ -30,17 +30,17 @@ public class VendasController {
     @Autowired
     VendaRepository repository;
 
-    @GetMapping("/form")
+    /*@GetMapping("/form")
     public String form(Venda venda){
         return "/vendas/form";
-    }
+    }*/
 
     @GetMapping("/list")
-    public ModelAndView listar(ModelMap model) {
+    public ModelAndView listar(ModelMap model) {       
         model.addAttribute("venda", repository.vendas());
         return new ModelAndView("/vendas/list", model);
     }
-
+    /*
     @PostMapping("/save")
     public ModelAndView save(Venda venda){
         repository.save(venda);
@@ -67,5 +67,5 @@ public class VendasController {
         
         return new ModelAndView("redirect:/vendas/list");
     }
-
+    */
 }

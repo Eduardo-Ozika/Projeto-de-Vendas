@@ -6,6 +6,7 @@ package com.projeto.projetoVendas.model.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -19,14 +20,16 @@ import javax.persistence.Table;
 @Table(name = "tb_itemvenda")
 public class ItemVenda {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Double qtd;
     
     @OneToOne
     @JoinColumn(name = "id_produto")
     private Produto produto;
-
+    @OneToOne
+    @JoinColumn(name = "id_venda")
+    private Venda venda;
     //getters e setters
     public Double total(){
         return produto.getValor()*this.qtd;

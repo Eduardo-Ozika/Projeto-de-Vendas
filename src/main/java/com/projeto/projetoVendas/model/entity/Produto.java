@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Table(name = "tb_produto")
 public class Produto {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String descricao;
     private Double valor;

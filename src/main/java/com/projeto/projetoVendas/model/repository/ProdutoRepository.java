@@ -41,4 +41,8 @@ public class ProdutoRepository {
     public void update(Produto produto){
         em.merge(produto);
     }
+
+    public Object produtos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

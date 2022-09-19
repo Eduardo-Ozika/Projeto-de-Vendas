@@ -6,6 +6,7 @@ package com.projeto.projetoVendas.model.entity;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -54,7 +55,7 @@ public class Venda {
         this.itemvenda = itemvenda;
     }
     
-    @OneToMany(mappedBy = "venda")
+    @OneToMany(mappedBy = "venda", cascade = CascadeType.PERSIST)
     private List<ItemVenda> itemvenda;
     
     public Double total(){

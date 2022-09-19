@@ -12,11 +12,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author eduar
  */
+@Scope("session")
+@Component
 @Entity
 @Table(name = "tb_venda")
 public class Venda {

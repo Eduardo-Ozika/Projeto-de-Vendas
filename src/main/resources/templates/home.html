@@ -10,7 +10,26 @@
         <div>
             <a href="/produtos/form"><button>Cadastrar produtos</button></a>
             <a href="/produtos/list"><button>Consultar produtos</button></a>
+            <br>
+            <a href="/vendas/list"><button>Listar Vendas</button></a>
             
+        </div>
+        <div>
+            <table class="table" border="1">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tr th:each="p : ${produtos}">
+                <td th:text="${p.id}"> </td>
+                <td th:text="${p.descricao}"> </td>
+                <td th:text="${p.valor}"> </td>
+                <td> <a onclick="return window.confirm('Tem certeza que deseja adicionar este produto?')"  th:href="@{/produtos//{id}(id=${p.id})}">Adicionar</a> </td>
+            </tr>
+        </table>
         </div>
     </body>
 </html>

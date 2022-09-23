@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <table class="table" border="1">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tr th:each="p,s : ${produtos}">
+                <td th:text="${s.index+1}"> </td>
+                <td th:text="${p.descricao}"> </td>
+                <td th:text="${p.valor}"> </td>
+                <td> <a th:href="@{/vendas/savecarrinho/{id}(id=${p.id})}">Adicionar</a> </td>
+            </tr>
+            <p th:text="${produtos.size()}"><p>
+        </table>
+
+    </body>
+</html>

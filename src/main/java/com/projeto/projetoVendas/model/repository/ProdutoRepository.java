@@ -28,7 +28,7 @@ public class ProdutoRepository {
         return em.find(Produto.class, id);
     }
 
-    public List<Produto> produto(){
+    public List<Produto> produtos(){
         Query query = em.createQuery("from Produto");
         return query.getResultList();
     }
@@ -40,9 +40,5 @@ public class ProdutoRepository {
 
     public void update(Produto produto){
         em.merge(produto);
-    }
-
-    public Object produtos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

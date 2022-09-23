@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.Projeto;
+package com.projeto.projetoVendas;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -27,7 +27,8 @@ public class ConfiguracaoSpringMvc implements WebMvcConfigurer{
      */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("home");
+        //registry.addViewController("/").setViewName("home");
+        registry.addRedirectViewController("/", "/produtos/index");
         registry.addViewController("/home").setViewName("home");
 
     }

@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.context.annotation.Scope;
+import org.springframework.core.serializer.Serializer;
 import org.springframework.stereotype.Component;
 
 /**

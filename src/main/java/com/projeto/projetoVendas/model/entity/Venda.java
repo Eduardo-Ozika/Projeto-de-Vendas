@@ -4,6 +4,7 @@
  */
 package com.projeto.projetoVendas.model.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -14,7 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.context.annotation.Scope;
-import org.springframework.core.serializer.Serializer;
 import org.springframework.stereotype.Component;
 
 /**
@@ -25,7 +25,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table(name = "tb_venda")
-public class Venda {
+public class Venda implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

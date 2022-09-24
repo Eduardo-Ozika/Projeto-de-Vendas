@@ -4,6 +4,7 @@
  */
 package com.projeto.projetoVendas.model.entity;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tb_itemvenda")
-public class ItemVenda {
+public class ItemVenda implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,6 +32,12 @@ public class ItemVenda {
     @JoinColumn(name = "id_venda")
     private Venda venda;
     //getters e setters
+
+    public ItemVenda(Double qtd, Produto produto) {
+        this.qtd = qtd;
+        this.produto = produto;
+    }
+    
     public Double total(){
         return produto.getValor()*this.qtd;
     }

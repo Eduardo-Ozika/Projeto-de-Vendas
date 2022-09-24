@@ -18,7 +18,13 @@
                 <td th:text="${s.index+1}"> </td>
                 <td th:text="${p.descricao}"> </td>
                 <td th:text="${p.valor}"> </td>
-                <td> <a th:href="@{/vendas/savecarrinho/{id}(id=${p.id})}">Adicionar</a> </td>
+                <td>
+                <form th:action="@{/vendas/savecarrinho}" th:object="${itemVenda}" method="post">
+                    <input type="hidden" th:value="${p.id}">
+                    <input type="text" th:value="${qtd}"  placeholder="Quantidade">    
+                    <input type="submit" value="Enviar">
+                </form>
+                </td>
             </tr>
             <p th:text="${produtos.size()}"><p>
         </table>

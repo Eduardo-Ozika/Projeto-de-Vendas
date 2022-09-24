@@ -33,10 +33,16 @@ public class ProdutosController {
     public String form(Produto produto){
         return "/produtos/form";
     }
+    
+    @GetMapping("/index")
+    public ModelAndView index(ModelMap model) {
+        model.addAttribute("produtos", repository.produtos());
+        return new ModelAndView("/produtos/index", model);
+    }
 
     @GetMapping("/list")
     public ModelAndView listar(ModelMap model) {
-        model.addAttribute("produto", repository.produtos());
+        model.addAttribute("produtos", repository.produtos());
         return new ModelAndView("/produtos/list", model);
     }
 

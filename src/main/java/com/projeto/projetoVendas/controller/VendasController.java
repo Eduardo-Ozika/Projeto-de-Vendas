@@ -9,10 +9,13 @@ package com.projeto.projetoVendas.controller;
  * @author eduar
  */
 
+import com.projeto.projetoVendas.model.entity.ItemVenda;
+import com.projeto.projetoVendas.model.entity.Produto;
 import com.projeto.projetoVendas.model.entity.Venda;
+import com.projeto.projetoVendas.model.repository.ProdutoRepository;
 import com.projeto.projetoVendas.model.repository.VendaRepository;
+import java.util.List;
 import javax.transaction.Transactional;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,14 +24,22 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 
 @Transactional
 @Controller
+@Scope("request")
 @RequestMapping("vendas")
 public class VendasController {
 
     @Autowired
     VendaRepository repository;
+    
+    @Autowired
+    ProdutoRepository repositoryprod;
+    
+    @Autowired
+    Venda venda;
 
     @GetMapping("/form")
     public String form(Venda venda){
@@ -45,6 +56,13 @@ public class VendasController {
     public ModelAndView save(Venda venda){
         repository.save(venda);
         return new ModelAndView("redirect:/vendas/list");
+    }
+    @GetMapping("/savecarrinho/{id}")
+    public ModelAndView carrinho(@PathVariable("id") Long id, ItemVenda itemvenda){
+        itemvenda.setProduto(repositoryprod.produto(id));
+        
+        venda.addItemvenda(itemvenda);
+        return new ModelAndView("redirect:/produtos/index");
     }
         
     

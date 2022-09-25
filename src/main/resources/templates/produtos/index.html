@@ -20,13 +20,14 @@
                 <td th:text="${p.valor}"> </td>
                 <td>
                 <form th:action="@{/vendas/savecarrinho/{id}(id=${p.id})}" th:object="${itemVenda}" th:a  method="get">
-                    <input type="text" th:value="${qtd}"  placeholder="Quantidade">    
+                    <input type="number" th:value="${qtd}"  placeholder="Quantidade">    
                     <input type="submit" value="Enviar">
                 </form>
                 </td>
             </tr>
-            <p th:text="${produtos.size()}"><p>
         </table>
-
+        <p>Quantidade de itens disponiveis:<p>
+        <p th:text="${produtos.size()}"></p>
+        <a href="/vendas/carrinho"><button>carrinho</button></a>
     </body>
 </html>

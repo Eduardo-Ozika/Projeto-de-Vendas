@@ -5,6 +5,7 @@
 package com.projeto.projetoVendas.model.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -31,6 +32,8 @@ public class Venda implements Serializable{
     private Long id;
     private Date data;
 
+    
+
 
     public Long getId() {
         return id;
@@ -55,9 +58,12 @@ public class Venda implements Serializable{
     public void setItemvenda(List<ItemVenda> itemvenda) {
         this.itemvenda = itemvenda;
     }
+    public void addItemvenda(ItemVenda itemvenda) {
+        this.itemvenda.add(itemvenda);
+    }
     
     @OneToMany(mappedBy = "venda", cascade = CascadeType.PERSIST)
-    private List<ItemVenda> itemvenda;
+    private List<ItemVenda> itemvenda = new ArrayList();
     
     public Double total(){
         double total=0;

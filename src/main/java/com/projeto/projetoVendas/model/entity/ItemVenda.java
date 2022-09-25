@@ -23,7 +23,7 @@ public class ItemVenda implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Double qtd;
+    private int qtd;
     
     @OneToOne
     @JoinColumn(name = "id_produto")
@@ -33,10 +33,7 @@ public class ItemVenda implements Serializable{
     private Venda venda;
     //getters e setters
 
-    public ItemVenda(Double qtd, Produto produto) {
-        this.qtd = qtd;
-        this.produto = produto;
-    }
+    
     
     public Double total(){
         return produto.getValor()*this.qtd;
@@ -50,11 +47,11 @@ public class ItemVenda implements Serializable{
         this.id = id;
     }
 
-    public Double getQtd() {
+    public int getQtd() {
         return qtd;
     }
 
-    public void setQtd(Double qtd) {
+    public void setQtd(int qtd) {
         this.qtd = qtd;
     }
 

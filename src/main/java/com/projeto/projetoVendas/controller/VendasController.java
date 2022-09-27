@@ -53,7 +53,7 @@ public class VendasController {
     }
     @GetMapping("/carrinho")
     public ModelAndView carrinho(ModelMap model) {       
-        model.addAttribute("vendas", repository.vendas());
+        model.addAttribute("vendas", venda);
         return new ModelAndView("/vendas/carrinho", model);
     }
     
@@ -66,7 +66,6 @@ public class VendasController {
     public ModelAndView savecarrinho(@PathVariable("id") Long id, ItemVenda itemvenda){
         itemvenda.setProduto(repositoryprod.produto(id));
         venda.addItemvenda(itemvenda);
-        System.out.println(venda.getItemvenda().get(0).getQtd());
         return new ModelAndView("redirect:/produtos/index");
     }
         

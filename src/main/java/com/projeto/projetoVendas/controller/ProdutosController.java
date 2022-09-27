@@ -9,6 +9,7 @@ package com.projeto.projetoVendas.controller;
  * @author eduar
  */
 
+import com.projeto.projetoVendas.model.entity.ItemVenda;
 import com.projeto.projetoVendas.model.entity.Produto;
 import com.projeto.projetoVendas.model.repository.ProdutoRepository;
 import javax.transaction.Transactional;
@@ -35,7 +36,7 @@ public class ProdutosController {
     }
     
     @GetMapping("/index")
-    public ModelAndView index(ModelMap model) {
+    public ModelAndView index(ModelMap model, ItemVenda itemvenda) {
         model.addAttribute("produtos", repository.produtos());
         return new ModelAndView("/produtos/index", model);
     }

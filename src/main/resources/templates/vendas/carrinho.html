@@ -14,21 +14,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <table class="table" border="1">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Item</th>
                         <th>Descrição</th>
                         <th>Valor</th>
                         <th>Quantidade</th>
                         <th>Total</th>
                     </tr>
                 </thead>
-                <tr th:each="i : ${session.venda.itemvenda}">
-                    <td th:text="${i.id}"> </td>
+                <tr th:each="i, s : ${session.venda.itemvenda}">
+                    <td th:text="${s.index+1}"> </td>
                     <td th:text="${i.produto.descricao}"> </td>
                     <td th:text="${i.produto.valor}"> </td>
                     <td th:text="${i.qtd}"> </td>
                     <td th:text="${i.total()}"> </td>
                 </tr>
             </table>
+            <p th:text="${session.venda.total()}"></p>
         </div>
     </body>
 </html>

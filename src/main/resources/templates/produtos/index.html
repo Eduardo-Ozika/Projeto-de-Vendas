@@ -19,8 +19,9 @@
                 <td th:text="${p.descricao}"> </td>
                 <td th:text="${p.valor}"> </td>
                 <td>
-                <form th:action="@{/vendas/savecarrinho/{id}(id=${p.id})}" th:object="${itemVenda}" th:a  method="get">
-                    <input type="number" th:value="${qtd}"  placeholder="Quantidade">    
+                <form th:action="@{/vendas/savecarrinho/{id}(id=${p.id})}" th:object="${itemVenda}" method="get">
+                    <input type="hidden" th:field="*{id}">
+                    <input type="number" th:field="*{qtd}"  placeholder="Quantidade">    
                     <input type="submit" value="Enviar">
                 </form>
                 </td>

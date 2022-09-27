@@ -64,6 +64,7 @@ public class VendasController {
     }
     @GetMapping("/savecarrinho/{id}")
     public ModelAndView savecarrinho(@PathVariable("id") Long id, ItemVenda itemvenda){
+        itemvenda.setId((long)venda.getItemvenda().size()+1);
         itemvenda.setProduto(repositoryprod.produto(id));
         venda.addItemvenda(itemvenda);
         return new ModelAndView("redirect:/produtos/index");

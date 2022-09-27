@@ -27,7 +27,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <td th:text="${i.produto.valor}"> </td>
                     <td th:text="${i.qtd}"> </td>
                     <td th:text="${i.total()}"> </td>
-                </tr>
+<!--                    <td> <a th:href="@{/vendas/edit/{id}(id=${p.id})}">Editar</a> </td>
+                    <td> <a onclick="return window.confirm('Tem certeza que deseja excluir este registro?')"  th:href="@{/produtos/remove/{id}(id=${p.id})}">Excluir</a> </td>
+                </tr>-->
             </table>
             <p th:text="${session.venda.total()}"></p>
         </div>

@@ -33,8 +33,14 @@ public class ItemVenda implements Serializable{
     private Venda venda;
     //getters e setters
 
-    
-    
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Venda venda) {
+        this.venda = venda;
+    }
+
     public Double total(){
         return produto.getValor()*this.qtd;
     }

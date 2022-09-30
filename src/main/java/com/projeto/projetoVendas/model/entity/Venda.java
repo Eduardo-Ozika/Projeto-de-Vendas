@@ -5,8 +5,8 @@
 package com.projeto.projetoVendas.model.entity;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -30,9 +30,10 @@ public class Venda implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date data;
+    private LocalDate data = LocalDate.now();
 
-    
+    @OneToMany(mappedBy = "venda", cascade = CascadeType.PERSIST)
+    private List<ItemVenda> itemvenda = new ArrayList();
 
 
     public Long getId() {
@@ -43,14 +44,14 @@ public class Venda implements Serializable{
         this.id = id;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
-
+    
     public List<ItemVenda> getItemvenda() {
         return itemvenda;
     }
@@ -62,9 +63,6 @@ public class Venda implements Serializable{
         this.itemvenda.add(itemvenda);
     }
     
-    @OneToMany(mappedBy = "venda", cascade = CascadeType.PERSIST)
-    private List<ItemVenda> itemvenda = new ArrayList();
-    
     public Double total(){
         double total=0;
         for(int i=0;itemvenda.size()>i;i++){
@@ -72,5 +70,5 @@ public class Venda implements Serializable{
         }
     return total;
     }
-    
+
 }

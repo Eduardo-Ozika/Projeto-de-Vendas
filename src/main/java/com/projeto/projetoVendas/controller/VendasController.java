@@ -10,11 +10,10 @@ package com.projeto.projetoVendas.controller;
  */
 
 import com.projeto.projetoVendas.model.entity.ItemVenda;
-import com.projeto.projetoVendas.model.entity.Produto;
 import com.projeto.projetoVendas.model.entity.Venda;
 import com.projeto.projetoVendas.model.repository.ProdutoRepository;
 import com.projeto.projetoVendas.model.repository.VendaRepository;
-import java.util.List;
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,10 +61,10 @@ public class VendasController {
         repository.save(venda);
         return new ModelAndView("redirect:/vendas/list");
     }
-    @GetMapping("/savecarrinho/{id}")
-    public ModelAndView savecarrinho(@PathVariable("id") Long id, ItemVenda itemvenda){
-        itemvenda.setId((long)venda.getItemvenda().size()+1);
-        itemvenda.setProduto(repositoryprod.produto(id));
+    @GetMapping("/savecarrinho")
+    public ModelAndView savecarrinho(ItemVenda itemvenda){
+        itemvenda.setProduto(repositoryprod.produto(itemvenda.getProduto().getId()));
+        itemvenda.setVenda(venda);
         venda.addItemvenda(itemvenda);
         return new ModelAndView("redirect:/produtos/index");
     }
@@ -76,7 +75,13 @@ public class VendasController {
         repository.remove(id);
         return new ModelAndView("redirect:/vendas/list");
     }
-
+    
+    @GetMapping("/finalizarvenda")
+    public ModelAndView finalizarvenda(HttpSession session){
+        repository.save(venda);
+        session.invalidate();
+        return new ModelAndView("redirect:/vendas/list");
+    }
     
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable("id") Long id, ModelMap model) {
@@ -84,8 +89,8 @@ public class VendasController {
         return new ModelAndView("/vendas/form", model);
     }
     
-    @GetMapping("/carrinhoremove/{id}")
-    public ModelAndView carrinhoremove(@PathVariable("id") int index){
+    @GetMapping("/carrinhoremove/{index}")
+    public ModelAndView carrinhoremove(@PathVariable("index") int index){
         venda.getItemvenda().remove(index);
         return new ModelAndView("redirect:/vendas/carrinho");
     }

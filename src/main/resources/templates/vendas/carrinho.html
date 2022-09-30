@@ -31,6 +31,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </tr>
             </table>
             <p th:text="${session.venda.total()}"></p>
+            <a onclick="return window.confirm('Tem certeza que deseja comprar estes produtos?')"  th:href="@{/vendas/finalizarvenda}">Comprar</a> </td>
         </div>
     </body>
 </html>

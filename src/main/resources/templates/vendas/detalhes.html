@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Detalhes da venda</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <p>
+            Informações da Venda:<br>
+            ID: <span th:text="${venda.id}"></span><br>
+            Data: <span th:text="${venda.data}"></span><br>
+            Valor total: <span th:text="${venda.total()}"></span>
+        </p>
+        <table class="table" border="1">
+            <thead>
+                <tr><th colspan="5">Tabela de itens</th></tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>qtd</th>
+                    <th>Valor Total</th>
+                </tr>
+            </thead>
+            <tr th:each="i : ${venda.itemvenda}">
+                <td th:text="${i.id}"> </td>
+                <td th:text="${i.produto.descricao}"> </td>
+                <td th:text="${i.produto.valor}"> </td>
+                <td th:text="'x'+${i.qtd}"> </td>
+                <td th:text="${i.total()}"> </td>
+            <tr>
+        </table>
+    </body>
+</html>

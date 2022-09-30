@@ -94,7 +94,13 @@ public class VendasController {
         venda.getItemvenda().remove(index);
         return new ModelAndView("redirect:/vendas/carrinho");
     }
-
+    
+    @GetMapping("/detalhes/{id}")
+    public ModelAndView detalhes(@PathVariable("id") Long id, ModelMap model){
+        model.addAttribute("venda", repository.venda(id));
+        return new ModelAndView("/vendas/detalhes", model);
+    }
+    
     @PostMapping("/update")
     public ModelAndView update(Venda venda) {
         repository.update(venda);

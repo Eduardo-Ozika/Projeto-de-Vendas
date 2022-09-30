@@ -13,6 +13,7 @@
                     <th>Index</th>
                     <th>Descrição</th>
                     <th>Valor</th>
+                    <th>Informe a quantidade de itens</th>
                 </tr>
             </thead>
             <tr th:each="p,s : ${produtos}">
@@ -20,16 +21,16 @@
                 <td th:text="${p.descricao}"> </td>
                 <td th:text="${p.valor}"> </td>
                 <td>
-                <form th:action="@{/vendas/savecarrinho/{id}(id=${p.id})}" th:object="${itemVenda}" method="get">
+                <form th:action="@{/vendas/savecarrinho}" th:object="${itemVenda}" method="get">
                     <input type="hidden" th:field="*{id}">
+                    <input type="hidden" th:name="produto.id" th:value="${p.id}">    
                     <input type="number" th:field="*{qtd}"  placeholder="Quantidade">    
                     <input type="submit" value="Enviar">
                 </form>
                 </td>
             </tr>
         </table>
-        <p>Quantidade de itens disponiveis:<p>
-        <p th:text="${produtos.size()}"></p>
-        <a href="/vendas/carrinho"><button>carrinho</button></a>
+        <p th:text="'Produtos disponiveis: '+${produtos.size()}"></p>
+        <a href="/vendas/carrinho"><button th:text="'Carrinho: '+${session.venda.itemvenda.size()}">  </button></a>
     </body>
 </html>

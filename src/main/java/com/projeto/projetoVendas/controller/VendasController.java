@@ -83,6 +83,12 @@ public class VendasController {
         return new ModelAndView("redirect:/vendas/list");
     }
     
+    @GetMapping("/limparsessao")
+    public ModelAndView limparsessao(HttpSession session){
+        session.invalidate();
+        return new ModelAndView("redirect:/vendas/list");
+    }
+    
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable("id") Long id, ModelMap model) {
         model.addAttribute("venda", repository.venda(id));

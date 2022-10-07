@@ -51,9 +51,8 @@ public class VendasController {
         return new ModelAndView("/vendas/list", model);
     }
     @GetMapping("/carrinho")
-    public ModelAndView carrinho(ModelMap model) {       
-        model.addAttribute("vendas", venda);
-        return new ModelAndView("/vendas/carrinho", model);
+    public ModelAndView carrinho() {
+        return new ModelAndView("/vendas/carrinho");
     }
     
     @PostMapping("/save")

@@ -39,7 +39,7 @@ public class Venda implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "id_cliente")
-    private Cliente cliente;
+    private ClientePF cliente;
     
     public Long getId() {
         return id;
@@ -66,6 +66,14 @@ public class Venda implements Serializable{
     }
     public void addItemvenda(ItemVenda itemvenda) {
         this.itemvenda.add(itemvenda);
+    }
+
+    public ClientePF getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(ClientePF cliente) {
+        this.cliente = cliente;
     }
     
     public Double total(){

@@ -15,7 +15,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tb_cliente")
-public class ClientePF extends Pessoa{
+public class ClientePF extends Cliente{
     private String cpf;
     
     @OneToMany(mappedBy = "vendas")

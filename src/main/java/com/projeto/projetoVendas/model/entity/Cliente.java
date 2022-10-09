@@ -4,14 +4,10 @@
  */
 package com.projeto.projetoVendas.model.entity;
 
+import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
@@ -21,7 +17,10 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "tb_cliente")
 public class Cliente extends Pessoa{
     private String cpf;
-
+    
+    @OneToMany(mappedBy = "vendas")
+    private List<Venda> venda;
+    
     public String getCpf() {
         return cpf;
     }

@@ -83,6 +83,7 @@ public class VendasController {
     
     @GetMapping("/clienteadd")
     public ModelAndView clienteadd(ClientePF clientepf){
+        clientepf = repositoryclien.cliente(clientepf.getId());
         venda.setCliente(repositoryclien.cliente(clientepf.getId()));
         clientepf.addVenda(venda);
         repositoryclien.update(clientepf);
@@ -117,6 +118,8 @@ public class VendasController {
     @GetMapping("/detalhes/{id}")
     public ModelAndView detalhes(@PathVariable("id") Long id, ModelMap model){
         model.addAttribute("venda", repository.venda(id));
+        Venda v = repository.venda(id);
+        model.addAttribute("cliente", repositoryclien.cliente(v.getCliente().getId()));  
         return new ModelAndView("/vendas/detalhes", model);
     }
     

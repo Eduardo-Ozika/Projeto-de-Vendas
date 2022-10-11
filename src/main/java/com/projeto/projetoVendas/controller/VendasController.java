@@ -11,6 +11,7 @@ package com.projeto.projetoVendas.controller;
 
 import com.projeto.projetoVendas.model.entity.ItemVenda;
 import com.projeto.projetoVendas.model.entity.Venda;
+import com.projeto.projetoVendas.model.repository.ClientePFRepository;
 import com.projeto.projetoVendas.model.repository.ProdutoRepository;
 import com.projeto.projetoVendas.model.repository.VendaRepository;
 import javax.servlet.http.HttpSession;
@@ -38,6 +39,9 @@ public class VendasController {
     ProdutoRepository repositoryprod;
     
     @Autowired
+    ClientePFRepository repositoryclien;
+    
+    @Autowired
     Venda venda;
 
     @GetMapping("/form")
@@ -51,8 +55,9 @@ public class VendasController {
         return new ModelAndView("/vendas/list", model);
     }
     @GetMapping("/carrinho")
-    public ModelAndView carrinho() {
-        return new ModelAndView("/vendas/carrinho");
+    public ModelAndView carrinho(ModelMap model) {
+        model.addAttribute("clientes", repositoryclien.clientes());
+        return new ModelAndView("/vendas/carrinho", model);
     }
     
     @PostMapping("/save")

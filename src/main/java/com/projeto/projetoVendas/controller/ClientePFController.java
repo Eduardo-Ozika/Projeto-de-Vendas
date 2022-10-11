@@ -32,7 +32,7 @@ public class ClientePFController {
 
     @GetMapping("/form")
     public String form(ClientePF Cliente){
-        return "/CclientePF/form";
+        return "/clientePF/form";
     }
 
     @GetMapping("/list")

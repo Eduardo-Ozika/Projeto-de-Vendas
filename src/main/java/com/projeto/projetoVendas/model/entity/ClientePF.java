@@ -4,6 +4,7 @@
  */
 package com.projeto.projetoVendas.model.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -19,7 +20,7 @@ public class ClientePF extends Cliente{
     private String cpf;
     
     @OneToMany(mappedBy = "clientepf")
-    private List<Venda> venda;
+    private List<Venda> venda = new ArrayList();;
     
     public String getCpf() {
         return cpf;
@@ -31,6 +32,10 @@ public class ClientePF extends Cliente{
 
     public List<Venda> getVenda() {
         return venda;
+    }
+    
+    public void addVenda(Venda venda) {
+        this.venda.add(venda);
     }
 
     public void setVenda(List<Venda> venda) {

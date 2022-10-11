@@ -38,8 +38,8 @@ public class Venda implements Serializable{
     private List<ItemVenda> itemvenda = new ArrayList();
 
     @ManyToOne
-    @JoinColumn(name = "id_cliente")
-    private ClientePF cliente;
+    @JoinColumn(name = "id_clientepf")
+    private ClientePF clientepf;
     
     public Long getId() {
         return id;
@@ -69,11 +69,11 @@ public class Venda implements Serializable{
     }
 
     public ClientePF getCliente() {
-        return cliente;
+        return clientepf;
     }
 
-    public void setCliente(ClientePF cliente) {
-        this.cliente = cliente;
+    public void setCliente(ClientePF clientepf) {
+        this.clientepf = clientepf;
     }
     
     public Double total(){

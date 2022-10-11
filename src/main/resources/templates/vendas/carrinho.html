@@ -34,7 +34,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </tr>
             </table>
             <p th:text="${session.venda.total()}"></p>
-            <form th:action="@{/vendas/finalizarvenda}" th:object="${clientePF}"> <!--fazer um select para mostrar todos os clientes-->
+            <form th:action="@{/vendas/clienteadd}" th:object="${clientePF}"> <!--fazer um select para mostrar todos os clientes-->
                 <select th:name="id" class="form-select" label="Selecione um Cliente" >
                     <option selected>Selecione um Cliente</option>
                     <option th:each="c : ${clientes}" th:value="${c.id}" th:text="${c.nome}"></option>

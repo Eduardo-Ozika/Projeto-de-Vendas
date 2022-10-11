@@ -9,6 +9,7 @@ package com.projeto.projetoVendas.controller;
  * @author eduar
  */
 
+import com.projeto.projetoVendas.model.entity.ClientePF;
 import com.projeto.projetoVendas.model.entity.ItemVenda;
 import com.projeto.projetoVendas.model.entity.Venda;
 import com.projeto.projetoVendas.model.repository.ClientePFRepository;
@@ -78,6 +79,14 @@ public class VendasController {
     public ModelAndView remove(@PathVariable("id") Long id){
         repository.remove(id);
         return new ModelAndView("redirect:/vendas/list");
+    }
+    
+    @GetMapping("/clienteadd")
+    public ModelAndView clienteadd(ClientePF clientepf){
+        venda.setCliente(repositoryclien.cliente(clientepf.getId()));
+        clientepf.addVenda(venda);
+        repositoryclien.update(clientepf);
+        return new ModelAndView("redirect:/vendas/finalizarvenda");
     }
     
     @GetMapping("/finalizarvenda")

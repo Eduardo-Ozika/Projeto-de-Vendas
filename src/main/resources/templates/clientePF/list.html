@@ -18,8 +18,8 @@
                 <td th:text="${c.id}"> </td>
                 <td th:text="${c.nome}"> </td>
                 <td th:text="${c.cpf}"> </td>
-                <td> <a th:href="@{/clientePF/edit/{id}(id=${p.id})}">Editar</a> </td>
-                <td> <a onclick="return window.confirm('Tem certeza que deseja excluir este registro?')"  th:href="@{/clientePF/remove/{id}(id=${p.id})}">Excluir</a> </td>
+                <td> <a th:href="@{/clientePF/edit/{id}(id=${c.id})}">Editar</a> </td>
+                <td> <a onclick="return window.confirm('Tem certeza que deseja excluir este registro?')"  th:href="@{/clientePF/remove/{id}(id=${c.id})}">Excluir</a> </td>
             </tr>
         </table>
 

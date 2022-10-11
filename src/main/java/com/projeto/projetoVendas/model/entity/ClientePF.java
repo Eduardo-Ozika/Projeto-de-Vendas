@@ -14,11 +14,11 @@ import javax.persistence.Table;
  * @author eduar
  */
 @Entity
-@Table(name = "tb_cliente")
+@Table(name = "tb_clientepf")
 public class ClientePF extends Cliente{
     private String cpf;
     
-    @OneToMany(mappedBy = "vendas")
+    @OneToMany(mappedBy = "clientepf")
     private List<Venda> venda;
     
     public String getCpf() {

@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
-    <head>
-        <title>Detalhes da venda</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
+<div th:insert="fragments/header :: modelheader"></div>
         <p>
             Informações da Venda:<br>
             ID: <span th:text="${venda.id}"></span><br>
@@ -43,5 +32,4 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             Nome: <span th:text="${cliente.nome}"></span><br>
             CPF: <span th:text="${cliente.cpf}"></span><br>
         </p>
-    </body>
-</html>
+<div th:insert="fragments/footer :: modelfooter"></div>

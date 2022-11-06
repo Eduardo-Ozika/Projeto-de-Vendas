@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Form dos Produtos</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
+<div th:insert="fragments/header :: modelheader"></div>
 
         <h1>FORM</h1>
         <form th:action="${produto.id == null} ? @{/produtos/save} : @{/produtos/update}" th:object="${produto}" method="post">
@@ -16,6 +9,4 @@
             <br>
             <input type="submit" value="Enviar">
         </form>
-        
-    </body>
-</html>
+<div th:insert="fragments/footer :: modelfooter"></div>

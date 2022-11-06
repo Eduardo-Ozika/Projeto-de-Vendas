@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Index</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <p>Adicione os itens ao carrinho</p>
+<div th:insert="fragments/header :: modelheader"></div>
+<div class="container ">
+<p>Adicione os itens ao carrinho</p>
         <table class="table" border="1">
             <thead>
                 <tr>
@@ -30,7 +24,7 @@
                 </td>
             </tr>
         </table>
-        <p th:text="'Produtos disponiveis: '+${produtos.size()}"></p>
+<!--        <p th:text="'Produtos disponiveis: '+${produtos.size()}"></p>-->
         <a href="/vendas/carrinho"><button th:text="'Carrinho: '+${session.venda.itemvenda.size()}">  </button></a>
-    </body>
-</html>
+    </div>
+<div th:insert="fragments/footer :: modelfooter"></div>

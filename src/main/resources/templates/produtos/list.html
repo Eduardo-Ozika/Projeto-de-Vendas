@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>List de Produtos</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
+<div th:insert="fragments/header :: modelheader"></div>
         <h1>Todos os produtos</h1>
         <table class="table" border="1">
             <thead>
@@ -23,6 +16,4 @@
                 <td> <a onclick="return window.confirm('Tem certeza que deseja excluir este registro?')"  th:href="@{/produtos/remove/{id}(id=${p.id})}">Excluir</a> </td>
             </tr>
         </table>
-
-    </body>
-</html>
+<div th:insert="fragments/footer :: modelfooter"></div>

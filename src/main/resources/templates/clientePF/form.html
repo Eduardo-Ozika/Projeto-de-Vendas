@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-
+<div th:insert="fragments/header :: modelheader"></div>
         <h1>FORM</h1>
         <form th:action="${clientePF.id == null} ? @{/clientePF/save} : @{/clientePF/update}" th:object="${clientePF}" method="post">
             <input type="hidden" th:field="*{id}">
@@ -16,5 +8,4 @@
             <br>
             <input type="submit" value="Enviar">
         </form>
-    </body>
-</html>
+<div th:insert="fragments/footer :: modelfooter"></div>

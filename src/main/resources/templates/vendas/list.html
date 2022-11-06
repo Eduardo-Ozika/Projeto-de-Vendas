@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>List de Vendas</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
+<div th:insert="fragments/header :: modelheader"></div>
         <table class="table" border="1">
             <thead>
                 <tr>
@@ -22,6 +15,4 @@
                 
             </tr>
         </table>
-
-    </body>
-</html>
+<div th:insert="fragments/footer :: modelfooter"></div>

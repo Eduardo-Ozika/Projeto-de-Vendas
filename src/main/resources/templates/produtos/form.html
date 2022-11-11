@@ -1,12 +1,9 @@
 <div th:insert="fragments/header :: modelheader"></div>
-
-        <h1>FORM</h1>
-        <form th:action="${produto.id == null} ? @{/produtos/save} : @{/produtos/update}" th:object="${produto}" method="post">
+        <h1 class="d-flex justify-content-center">Cadastrar Produtos</h1>
+        <form class="d-flex justify-content-center" th:action="${produto.id == null} ? @{/produtos/save} : @{/produtos/update}" th:object="${produto}" method="post">
             <input type="hidden" th:field="*{id}">
             <input type="text" th:field="*{descricao}"  placeholder="Descricao">
-            <br>
-            <input type="number"step="any" th:field="*{valor}"  placeholder="Valor">            
-            <br>
+            <input type="number"step="any" th:field="*{valor}"  placeholder="Valor">
             <input type="submit" value="Enviar">
         </form>
 <div th:insert="fragments/footer :: modelfooter"></div>

@@ -1,6 +1,6 @@
 <div th:insert="fragments/header :: modelheader"></div>
-        <h1>FORM</h1>
-        <form th:action="${clientePF.id == null} ? @{/clientePF/save} : @{/clientePF/update}" th:object="${clientePF}" method="post">
+        <h1 class="d-flex justify-content-center">Cadastrar Cliente</h1>
+        <form class="d-flex justify-content-center" th:action="${clientePF.id == null} ? @{/clientePF/save} : @{/clientePF/update}" th:object="${clientePF}" method="post">
             <input type="hidden" th:field="*{id}">
             <input type="text" th:field="*{nome}"  placeholder="Nome">
             <br>

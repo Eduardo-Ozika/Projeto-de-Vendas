@@ -25,6 +25,6 @@
             </tr>
         </table>
 <!--        <p th:text="'Produtos disponiveis: '+${produtos.size()}"></p>-->
-        <a href="/vendas/carrinho"><button th:text="'Carrinho: '+${session.venda.itemvenda.size()}">  </button></a>
+        <a href="/vendas/carrinho"><button th:text="'Carrinho: '+${session.venda.itemvenda.size()!=null ? session.venda.itemvenda.size():0}">  </button></a>
     </div>
 <div th:insert="fragments/footer :: modelfooter"></div>

@@ -30,7 +30,7 @@ and open the template in the editor.
                             <a class="nav-link  " href="/produtos/list">Listar Produto</a>
                             <a class="nav-link  " href="/clientePF/form">Cadastrar Cliente</a>
                             <a class="nav-link  " href="/clientePF/list">Listar Cliente</a>
-                            <a class="nav-link  " href="/vendas/list">Listar Vendas</a>
+                            <a class="nav-link  " sec:authorize="hasRole('ADMIN')" href="/vendas/list">Listar Vendas</a>
                             <a class="nav-link  " href="/vendas/carrinho">Mostrar Carrinho</a>
                         </div>
                     </div>
